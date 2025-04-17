@@ -1,9 +1,16 @@
 from fastapi import FastAPI
+import sys, os
+
+sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 from fastapi.middleware.cors import CORSMiddleware
 from .config import settings
+from .api import api_router
+
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
+    prefix=settings.API_V1_STR,
 )
 
 app.add_middleware(
@@ -13,6 +20,8 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(api_router, prefix=settings.API_V1_STR)
 
 @app.get("/")
 async def root():
