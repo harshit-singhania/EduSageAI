@@ -55,7 +55,7 @@ class LLMService:
 if __name__ == "__main__":
     llm_service = LLMService()
     messages = [
-        {"role": "user", "content": "what is your name?"}
+        {"role": "user", "content": "what is 2 times 3?"}
     ]
     response = llm_service.get_completions(messages)
     print(response)
