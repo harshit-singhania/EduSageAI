@@ -7,7 +7,7 @@ class UserBase(BaseModel):
     email: EmailStr = Field(..., min_length=5, max_length=50, description="User's email address")
     first_name: str = Field(..., min_length=1, max_length=50, description="User's full name")
     last_name: str = Field(..., min_length=1, max_length=50, description="User's last name")
-    created_at: datetime = Field(..., description="User creation timestamp", default_factory=datetime.now(datetime.timezone.utc))
+    created_at: datetime = Field(..., description="User creation timestamp", default_factory=datetime.utcnow())
     
     
 class UserCreate(UserBase):
