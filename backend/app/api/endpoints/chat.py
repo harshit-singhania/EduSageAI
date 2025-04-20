@@ -5,15 +5,16 @@ from fastapi.encoders import jsonable_encoder
 from typing import List, Dict, Any, Optional
 
 from app.config import settings
-from app.services.llm_service import LLMService
+from app.services.llm import LLMService
 from app.schemas.chat import ChatRequest, ChatResponse
 
 router = APIRouter()
 llm_service = LLMService()
 
-@router.post("/chat/completions", response_model=ChatResponse) 
+@router.post("/chat/completions", 
+             response_model=ChatResponse) 
 def chat_completions(
-    request: ChatRequest
+    request: ChatRequest, 
 ) -> JSONResponse:
     """Get chat completions from the language model."""
     try:

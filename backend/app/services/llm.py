@@ -1,3 +1,4 @@
+
 import os 
 import sys
 
@@ -5,8 +6,7 @@ import openai
 from openai import OpenAI
 from typing import Optional, Dict, Any, List
 
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from config import settings
+from app.config import settings
 
 class LLMService: 
     """Class for interacting with the language models
