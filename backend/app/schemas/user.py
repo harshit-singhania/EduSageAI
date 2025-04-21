@@ -39,4 +39,4 @@ class User(UserBase):
     updated_at: datetime = Field(..., description="User update timestamp")
     
     class Config:
-        orm_mode = True  # Enable ORM mode for SQLAlchemy compatibility
+        from_attributes=True  # Enable ORM mode for SQLAlchemy compatibility
